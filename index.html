@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurryBotZ - Documentação Completa</title>
+    <style>
+        :root {
+            --primary: #5865F2;
+            --secondary: #57F287;
+            --danger: #ED4245;
+            --warning: #FEE75C;
+            --dark: #2C2F33;
+            --darker: #23272A;
+            --light: #99AAB5;
+            --lighter: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--lighter);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--lighter);
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            color: var(--lighter);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--lighter);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: linear-gradient(45deg, rgba(88, 101, 242, 0.1), rgba(87, 242, 135, 0.1));
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--darker);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+            height: calc(100vh - 120px);
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .sidebar-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-category h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar-links {
+            list-style: none;
+        }
+
+        .sidebar-links a {
+            color: var(--light);
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s;
+            border-left: 2px solid transparent;
+            padding-left: 10px;
+        }
+
+        .sidebar-links a:hover,
+        .sidebar-links a.active {
+            color: var(--lighter);
+            border-left-color: var(--primary);
+        }
+
+        /* Content */
+        .content {
+            min-height: 100vh;
+        }
+
+        .category-section {
+            margin-bottom: 3rem;
+            scroll-margin-top: 100px;
+        }
+
+        .category-header {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary);
+        }
+
+        .category-header h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+        }
+
+        .commands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .command-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .command-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .command-header {
+            display: flex;
+            justify-content: between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .command-name {
+            font-family: 'Consolas', monospace;
+            background: rgba(88, 101, 242, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            color: var(--primary);
+        }
+
+        .command-badge {
+            background: var(--dark);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+
+        .command-badge.server {
+            background: var(--primary);
+        }
+
+        .command-badge.dm {
+            background: var(--secondary);
+            color: var(--darker);
+        }
+
+        .command-description {
+            color: var(--light);
+            margin-bottom: 1rem;
+        }
+
+        .command-usage {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--secondary);
+        }
+
+        .command-params {
+            font-size: 0.9rem;
+        }
+
+        .param {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .param-name {
+            color: var(--primary);
+            font-family: 'Consolas', monospace;
+        }
+
+        .param-desc {
+            color: var(--light);
+            text-align: right;
+        }
+
+        /* Error Section */
+        .error-section {
+            background: rgba(237, 66, 69, 0.1);
+            border: 1px solid rgba(237, 66, 69, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .error-section h3 {
+            color: var(--danger);
+            margin-bottom: 1rem;
+        }
+
+        .error-list {
+            list-style: none;
+        }
+
+        .error-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(237, 66, 69, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2rem 0;
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--lighter);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--darker);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .commands-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .command-card {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🤖</span>
+                FurryBotZ Docs
+            </div>
+            <nav>
+                <button class="mobile-menu-btn">☰</button>
+                <div class="nav-menu">
+                    <a href="#inicio">Início</a>
+                    <a href="#comandos">Comandos</a>
+                    <a href="#erros">Solução de Erros</a>
+                    <a href="#suporte">Suporte</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <h1>Documentação do FurryBotZ</h1>
+            <p>Guia completo de todos os comandos, configurações e solução de problemas do seu bot multifuncional favorito</p>
+            <div class="cta-buttons">
+                <a href="#comandos" class="btn btn-primary">Ver Comandos</a>
+                <a href="#erros" class="btn btn-secondary">Solução de Erros</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container main-content">
+        <aside class="sidebar">
+            <div class="sidebar-category">
+                <h3>Navegação</h3>
+                <ul class="sidebar-links">
+                    <li><a href="#inicio" class="active">🏠 Início</a></li>
+                    <li><a href="#moderacao">🛡️ Moderação</a></li>
+                    <li><a href="#jogos">🎮 Jogos</a></li>
+                    <li><a href="#diversao">🎉 Diversão</a></li>
+                    <li><a href="#roleplay">🎭 Roleplay</a></li>
+                    <li><a href="#utilidades">⚙️ Utilidades</a></li>
+                    <li><a href="#emoji">🎨 Emojis & Embeds</a></li>
+                    <li><a href="#erros">❌ Erros Comuns</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <main class="content">
+            <!-- Moderação -->
+            <section class="category-section" id="moderacao">
+                <div class="category-header">
+                    <h2>🛡️ Comandos de Moderação</h2>
+                    <p>Ferramentas para administração do servidor</p>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/ban</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Bane um membro do servidor com opção de enviar DM</p>
+                        <div class="command-usage">/ban @usuário motivo: "Violação de regras" anonimo: false</div>
+                        <div class="command-params">
+                            <div class="param">
+                                <span class="param-name">@usuário</span>
+                                <span class="param-desc">Membro a ser banido</span>
+                            </div>
+                            <div class="param">
+                                <span class="param-name">motivo</span>
+                                <span class="param-desc">Razão do banimento</span>
+                            </div>
+                            <div class="param">
+                                <span class="param-name">anonimo</span>
+                                <span class="param-desc">Banir anonimamente</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/limpar</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Limpa mensagens do canal (máx. 150)</p>
+                        <div class="command-usage">/limpar quantidade: 50</div>
+                        <div class="command-params">
+                            <div class="param">
+                                <span class="param-name">quantidade</span>
+                                <span class="param-desc">Número de mensagens (1-150)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/mute</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Silencia um membro temporariamente</p>
+                        <div class="command-usage">/mute @usuário tempo_minutos: 60 motivo: "Spam"</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Jogos -->
+            <section class="category-section" id="jogos">
+                <div class="category-header">
+                    <h2>🎮 Sistema de Jogos</h2>
+                    <p>Jogos interativos para diversão no servidor</p>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/velha</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Jogo da velha tradicional 3x3 (1 vs 1)</p>
+                        <div class="command-usage">/velha modo: "1v1"</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/velha4x4</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Jogo da velha 4x4 para 4 jogadores</p>
+                        <div class="command-usage">/velha4x4 modo: "2v2"</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/ppt</span>
+                            <span class="command-badge dm">DM</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Pedra, papel e tesoura contra bot ou usuário</p>
+                        <div class="command-usage">/ppt oponente: @usuário</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Diversão -->
+            <section class="category-section" id="diversao">
+                <div class="category-header">
+                    <h2>🎉 Comandos Divertidos</h2>
+                    <p>Entretenimento e interação social</p>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/meme</span>
+                            <span class="command-badge dm">DM</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Mostra memes aleatórios do Reddit</p>
+                        <div class="command-usage">/meme</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/avatar</span>
+                            <span class="command-badge dm">DM</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Mostra o avatar de um usuário</p>
+                        <div class="command-usage">/avatar usuário: @usuário</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/calc</span>
+                            <span class="command-badge dm">DM</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Calculadora científica avançada</p>
+                        <div class="command-usage">/calc expressão: "sin(45) + sqrt(16)"</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Roleplay -->
+            <section class="category-section" id="roleplay">
+                <div class="category-header">
+                    <h2>🎭 Sistema de Roleplay</h2>
+                    <p>Interações sociais com GIFs animados</p>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/abraçar</span>
+                            <span class="command-badge dm">DM</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Abraça alguém com GIF animado</p>
+                        <div class="command-usage">/abraçar usuário: @amigo</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/beijar</span>
+                            <span class="command-badge dm">DM</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Beija alguém com GIF romântico</p>
+                        <div class="command-usage">/beijar usuário: @parceiro</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/fazer_acao_rp</span>
+                            <span class="command-badge dm">DM</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Menu completo de ações de RP</p>
+                        <div class="command-usage">/fazer_acao_rp usuário: @alvo</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Emojis & Embeds -->
+            <section class="category-section" id="emoji">
+                <div class="category-header">
+                    <h2>🎨 Sistema de Emojis & Embeds</h2>
+                    <p>Gerenciamento avançado de emojis e criação de embeds</p>
+                </div>
+                <div class="commands-grid">
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/emoji_backup</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Faz backup completo dos emojis do servidor</p>
+                        <div class="command-usage">/emoji_backup</div>
+                    </div>
+
+                    <div class="command-card">
+                        <div class="command-header">
+                            <span class="command-name">/embed</span>
+                            <span class="command-badge server">Servidor</span>
+                        </div>
+                        <p class="command-description">Cria embeds personalizados</p>
+                        <div class="command-usage">/embed título: "Título" descrição: "Texto"</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Erros Comuns -->
+            <section class="category-section" id="erros">
+                <div class="category-header">
+                    <h2>❌ Solução de Problemas</h2>
+                    <p>Erros comuns e como resolvê-los</p>
+                </div>
+
+                <div class="error-section">
+                    <h3>🔧 Problemas de Permissão</h3>
+                    <ul class="error-list">
+                        <li><strong>Erro: "Missing Permissions"</strong> - Verifique se o bot tem as permissões necessárias no servidor</li>
+                        <li><strong>Erro: "Cannot ban administrators"</strong> - Não é possível banir outros administradores</li>
+                        <li><strong>Erro: "Cannot execute command in DMs"</strong> - Alguns comandos só funcionam em servidores</li>
+                    </ul>
+                </div>
+
+                <div class="error-section">
+                    <h3>🤖 Problemas do Bot</h3>
+                    <ul class="error-list">
+                        <li><strong>Bot não responde</strong> - Verifique se o bot está online e tem permissão de leitura no canal</li>
+                        <li><strong>Comandos não aparecem</strong> - Use /ajuda para recarregar a lista de comandos</li>
+                        <li><strong>Erro de rate limit</strong> - Aguarde alguns segundos antes de usar o comando novamente</li>
+                    </ul>
+                </div>
+
+                <div class="error-section">
+                    <h3>📱 Problemas em Dispositivos Móveis</h3>
+                    <ul class="error-list">
+                        <li><strong>Botões não funcionam</strong> - Atualize o app do Discord para a versão mais recente</li>
+                        <li><strong>GIFs não carregam</strong> - Verifique sua conexão com a internet</li>
+                        <li><strong>Interface cortada</strong> - Use o modo paisagem para melhor visualização</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer id="suporte">
+        <div class="container">
+            <div class="footer-links">
+                <a href="https://discord.gg/hhzJz3h5M9" target="_blank">Servidor de Suporte</a>
+                <a href="#inicio">Voltar ao Topo</a>
+                <a href="#comandos">Lista de Comandos</a>
+            </div>
+            <p>&copy; 2024 FurryBotZ - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Active link highlighting
+        const sections = document.querySelectorAll('.category-section');
+        const navLinks = document.querySelectorAll('.sidebar-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Command search functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const commandCards = document.querySelectorAll('.command-card');
+            
+            // Simple search highlight (could be expanded)
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchTerm = urlParams.get('search');
+            
+            if (searchTerm) {
+                commandCards.forEach(card => {
+                    const text = card.textContent.toLowerCase();
+                    if (text.includes(searchTerm.toLowerCase())) {
+                        card.style.borderColor = 'var(--secondary)';
+                        card.style.animation = 'pulse 2s infinite';
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+  </html>
