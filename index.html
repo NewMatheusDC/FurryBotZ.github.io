@@ -3,19 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FurryBotZ - Documentação Completa</title>
+    <title>FurryBotZ - Central de Ajuda</title>
     <style>
-        :root {
-            --primary: #5865F2;
-            --secondary: #57F287;
-            --danger: #ED4245;
-            --warning: #FEE75C;
-            --dark: #2C2F33;
-            --darker: #23272A;
-            --light: #99AAB5;
-            --lighter: #FFFFFF;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -23,11 +12,10 @@
         }
 
         body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: linear-gradient(135deg, var(--darker), var(--dark));
-            color: var(--lighter);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
             line-height: 1.6;
-            min-height: 100vh;
         }
 
         .container {
@@ -36,35 +24,33 @@
             padding: 0 20px;
         }
 
-        /* Header */
+        /* Cabeçalho */
         header {
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            background: #2a2a2a;
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid #5865F2;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 0;
         }
 
         .logo {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: bold;
-            color: var(--lighter);
         }
 
         .logo-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
 
         .nav-menu {
@@ -73,274 +59,255 @@
         }
 
         .nav-menu a {
-            color: var(--light);
+            color: #b0b0b0;
             text-decoration: none;
             transition: color 0.3s;
-            font-weight: 500;
         }
 
         .nav-menu a:hover {
-            color: var(--lighter);
+            color: #5865F2;
         }
 
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            color: var(--lighter);
+            color: white;
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        /* Hero Section */
+        /* Hero */
         .hero {
-            padding: 120px 0 60px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232a2a2a" width="1200" height="600"/><circle fill="%235865F2" opacity="0.1" cx="200" cy="150" r="100"/><circle fill="%2357F287" opacity="0.1" cx="1000" cy="400" r="150"/></svg>');
+            padding: 140px 0 60px;
             text-align: center;
-            background: linear-gradient(45deg, rgba(88, 101, 242, 0.1), rgba(87, 242, 135, 0.1));
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff;
         }
 
         .hero p {
             font-size: 1.2rem;
-            color: var(--light);
+            color: #cccccc;
             max-width: 600px;
             margin: 0 auto 2rem;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
         .btn {
-            padding: 12px 24px;
-            border-radius: 8px;
+            display: inline-block;
+            padding: 12px 30px;
+            background: #5865F2;
+            color: white;
             text-decoration: none;
+            border-radius: 5px;
             font-weight: 600;
             transition: all 0.3s;
             border: none;
             cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-secondary {
-            background: var(--secondary);
-            color: var(--darker);
+            margin: 5px;
         }
 
         .btn:hover {
+            background: #4752c4;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        /* Main Content */
+        .btn-secondary {
+            background: #57F287;
+            color: #1a1a1a;
+        }
+
+        .btn-secondary:hover {
+            background: #4ad97a;
+        }
+
+        /* Conteúdo Principal */
         .main-content {
             display: grid;
-            grid-template-columns: 250px 1fr;
+            grid-template-columns: 280px 1fr;
             gap: 2rem;
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
 
         /* Sidebar */
         .sidebar {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            height: fit-content;
             position: sticky;
             top: 100px;
-            height: calc(100vh - 120px);
-            overflow-y: auto;
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
-            padding: 1.5rem;
         }
 
-        .sidebar-category {
-            margin-bottom: 1.5rem;
-        }
-
-        .sidebar-category h3 {
-            color: var(--secondary);
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .sidebar h3 {
+            color: #57F287;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
 
         .sidebar-links {
             list-style: none;
         }
 
+        .sidebar-links li {
+            margin-bottom: 0.5rem;
+        }
+
         .sidebar-links a {
-            color: var(--light);
+            color: #b0b0b0;
             text-decoration: none;
-            padding: 0.5rem 0;
             display: block;
-            transition: color 0.3s;
-            border-left: 2px solid transparent;
-            padding-left: 10px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            transition: all 0.3s;
         }
 
-        .sidebar-links a:hover,
-        .sidebar-links a.active {
-            color: var(--lighter);
-            border-left-color: var(--primary);
+        .sidebar-links a:hover {
+            background: #3a3a3a;
+            color: white;
         }
 
-        /* Content */
-        .content {
-            min-height: 100vh;
-        }
-
-        .category-section {
+        /* Seções */
+        .section {
             margin-bottom: 3rem;
-            scroll-margin-top: 100px;
         }
 
-        .category-header {
-            background: rgba(0, 0, 0, 0.3);
+        .section-header {
+            background: #2a2a2a;
             padding: 1.5rem;
-            border-radius: 12px;
+            border-radius: 10px;
             margin-bottom: 1.5rem;
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid #5865F2;
         }
 
-        .category-header h2 {
+        .section-header h2 {
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
+            color: white;
         }
 
-        .commands-grid {
+        /* Cards */
+        .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 1.5rem;
         }
 
-        .command-card {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 12px;
+        .card {
+            background: #2a2a2a;
             padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #3a3a3a;
             transition: transform 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .command-card:hover {
+        .card:hover {
             transform: translateY(-5px);
-            border-color: var(--primary);
+            border-color: #5865F2;
         }
 
-        .command-header {
-            display: flex;
-            justify-content: between;
-            align-items: flex-start;
+        .card h3 {
+            color: #57F287;
             margin-bottom: 1rem;
+            font-size: 1.2rem;
         }
 
-        .command-name {
-            font-family: 'Consolas', monospace;
-            background: rgba(88, 101, 242, 0.2);
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 1.1rem;
-            color: var(--primary);
-        }
-
-        .command-badge {
-            background: var(--dark);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
-        }
-
-        .command-badge.server {
-            background: var(--primary);
-        }
-
-        .command-badge.dm {
-            background: var(--secondary);
-            color: var(--darker);
-        }
-
-        .command-description {
-            color: var(--light);
-            margin-bottom: 1rem;
-        }
-
-        .command-usage {
-            background: rgba(0, 0, 0, 0.3);
+        .command {
+            background: #1a1a1a;
             padding: 1rem;
-            border-radius: 6px;
-            font-family: 'Consolas', monospace;
-            font-size: 0.9rem;
+            border-radius: 5px;
             margin-bottom: 1rem;
-            border-left: 3px solid var(--secondary);
+            border-left: 3px solid #57F287;
         }
 
-        .command-params {
-            font-size: 0.9rem;
+        .command code {
+            background: #2a2a2a;
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: #57F287;
+            font-family: 'Courier New', monospace;
         }
 
-        .param {
+        /* Passos */
+        .steps {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .step {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 1rem;
+            align-items: flex-start;
         }
 
-        .param-name {
-            color: var(--primary);
-            font-family: 'Consolas', monospace;
+        .step-number {
+            background: #5865F2;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
         }
 
-        .param-desc {
-            color: var(--light);
-            text-align: right;
+        /* Tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #2a2a2a;
+            border-radius: 10px;
+            overflow: hidden;
         }
 
-        /* Error Section */
-        .error-section {
-            background: rgba(237, 66, 69, 0.1);
-            border: 1px solid rgba(237, 66, 69, 0.3);
-            border-radius: 12px;
-            padding: 2rem;
-            margin: 2rem 0;
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #3a3a3a;
         }
 
-        .error-section h3 {
-            color: var(--danger);
+        th {
+            background: #5865F2;
+            color: white;
+        }
+
+        /* Problemas */
+        .problemas {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        .problemas h4 {
+            color: #ff6b6b;
             margin-bottom: 1rem;
         }
 
-        .error-list {
-            list-style: none;
+        .problemas ul {
+            padding-left: 1.5rem;
         }
 
-        .error-list li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(237, 66, 69, 0.2);
+        .problemas li {
+            margin-bottom: 0.5rem;
         }
 
-        /* Footer */
+        /* Rodapé */
         footer {
-            background: rgba(0, 0, 0, 0.5);
+            background: #2a2a2a;
             padding: 2rem 0;
-            margin-top: 4rem;
             text-align: center;
+            margin-top: 3rem;
+            border-top: 2px solid #5865F2;
         }
 
         .footer-links {
@@ -352,75 +319,75 @@
         }
 
         .footer-links a {
-            color: var(--light);
+            color: #b0b0b0;
             text-decoration: none;
-            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: var(--lighter);
+            color: #57F287;
         }
 
-        /* Responsive */
+        /* Responsivo */
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
             }
-
+            
             .sidebar {
-                display: none;
+                position: static;
+                margin-bottom: 2rem;
             }
-
+            
             .mobile-menu-btn {
                 display: block;
             }
-
+            
             .nav-menu {
                 display: none;
                 position: absolute;
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: var(--darker);
+                background: #2a2a2a;
                 flex-direction: column;
                 padding: 1rem;
             }
-
+            
             .nav-menu.active {
                 display: flex;
             }
-
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            
             .hero h1 {
                 font-size: 2rem;
             }
-
-            .commands-grid {
-                grid-template-columns: 1fr;
-            }
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        /* Utilitários */
+        .destaque {
+            color: #57F287;
+            font-weight: bold;
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--dark);
+        .aviso {
+            background: #fff3cd;
+            color: #856404;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid #ffc107;
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--primary);
-            border-radius: 4px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .command-card {
-            animation: fadeIn 0.6s ease-out;
+        .dica {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 1rem;
+            border-radius: 5px;
+            margin: 1rem 0;
+            border-left: 4px solid #17a2b8;
         }
     </style>
 </head>
@@ -435,9 +402,9 @@
                 <button class="mobile-menu-btn">☰</button>
                 <div class="nav-menu">
                     <a href="#inicio">Início</a>
+                    <a href="#adicionar">Adicionar Bot</a>
                     <a href="#comandos">Comandos</a>
-                    <a href="#erros">Solução de Erros</a>
-                    <a href="#suporte">Suporte</a>
+                    <a href="#ajuda">Ajuda</a>
                 </div>
             </nav>
         </div>
@@ -445,286 +412,302 @@
 
     <section class="hero" id="inicio">
         <div class="container">
-            <h1>Documentação do FurryBotZ</h1>
-            <p>Guia completo de todos os comandos, configurações e solução de problemas do seu bot multifuncional favorito</p>
-            <div class="cta-buttons">
-                <a href="#comandos" class="btn btn-primary">Ver Comandos</a>
-                <a href="#erros" class="btn btn-secondary">Solução de Erros</a>
+            <h1>FurryBotZ - Seu Bot Multifuncional</h1>
+            <p>Tudo que você precisa saber para usar o bot no seu servidor Discord</p>
+            <div style="margin-top: 2rem;">
+                <a href="#adicionar" class="btn">Começar Agora</a>
+                <a href="#comandos" class="btn btn-secondary">Ver Comandos</a>
             </div>
         </div>
     </section>
 
     <div class="container main-content">
         <aside class="sidebar">
-            <div class="sidebar-category">
-                <h3>Navegação</h3>
-                <ul class="sidebar-links">
-                    <li><a href="#inicio" class="active">🏠 Início</a></li>
-                    <li><a href="#moderacao">🛡️ Moderação</a></li>
-                    <li><a href="#jogos">🎮 Jogos</a></li>
-                    <li><a href="#diversao">🎉 Diversão</a></li>
-                    <li><a href="#roleplay">🎭 Roleplay</a></li>
-                    <li><a href="#utilidades">⚙️ Utilidades</a></li>
-                    <li><a href="#emoji">🎨 Emojis & Embeds</a></li>
-                    <li><a href="#erros">❌ Erros Comuns</a></li>
-                </ul>
-            </div>
+            <h3>Navegação Rápida</h3>
+            <ul class="sidebar-links">
+                <li><a href="#adicionar">➕ Adicionar Bot</a></li>
+                <li><a href="#moderacao">🛡️ Moderação</a></li>
+                <li><a href="#jogos">🎮 Jogos</a></li>
+                <li><a href="#diversao">🎉 Diversão</a></li>
+                <li><a href="#utilidades">🔧 Utilidades</a></li>
+                <li><a href="#problemas">❌ Problemas Comuns</a></li>
+                <li><a href="#suporte">💬 Suporte</a></li>
+            </ul>
         </aside>
 
-        <main class="content">
-            <!-- Moderação -->
-            <section class="category-section" id="moderacao">
-                <div class="category-header">
-                    <h2>🛡️ Comandos de Moderação</h2>
-                    <p>Ferramentas para administração do servidor</p>
+        <main>
+            <!-- Adicionar Bot -->
+            <section class="section" id="adicionar">
+                <div class="section-header">
+                    <h2>🚀 Adicionar o Bot ao Servidor</h2>
+                    <p>Passo a passo simples para ter o bot funcionando</p>
                 </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/ban</span>
-                            <span class="command-badge server">Servidor</span>
-                        </div>
-                        <p class="command-description">Bane um membro do servidor com opção de enviar DM</p>
-                        <div class="command-usage">/ban @usuário motivo: "Violação de regras" anonimo: false</div>
-                        <div class="command-params">
-                            <div class="param">
-                                <span class="param-name">@usuário</span>
-                                <span class="param-desc">Membro a ser banido</span>
-                            </div>
-                            <div class="param">
-                                <span class="param-name">motivo</span>
-                                <span class="param-desc">Razão do banimento</span>
-                            </div>
-                            <div class="param">
-                                <span class="param-name">anonimo</span>
-                                <span class="param-desc">Banir anonimamente</span>
-                            </div>
+
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div>
+                            <h3>Clique para Adicionar</h3>
+                            <p>Use o link oficial abaixo - é seguro e rápido</p>
+                            <a href="https://discord.com/oauth2/authorize?client_id=1414755327093768305&scope=bot+applications.commands&permissions=8" 
+                               class="btn" target="_blank" style="margin-top: 0.5rem;">
+                                🔗 Adicionar Agora
+                            </a>
                         </div>
                     </div>
 
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/limpar</span>
-                            <span class="command-badge server">Servidor</span>
-                        </div>
-                        <p class="command-description">Limpa mensagens do canal (máx. 150)</p>
-                        <div class="command-usage">/limpar quantidade: 50</div>
-                        <div class="command-params">
-                            <div class="param">
-                                <span class="param-name">quantidade</span>
-                                <span class="param-desc">Número de mensagens (1-150)</span>
-                            </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div>
+                            <h3>Escolha o Servidor</h3>
+                            <p>Selecione onde quer o bot na lista que aparece</p>
+                            <p><small>Precisa ter permissão de "Gerenciar Servidor"</small></p>
                         </div>
                     </div>
 
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/mute</span>
-                            <span class="command-badge server">Servidor</span>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div>
+                            <h3>Autorize as Permissões</h3>
+                            <p>Marque todas as caixinhas - é importante para o bot funcionar direito</p>
                         </div>
-                        <p class="command-description">Silencia um membro temporariamente</p>
-                        <div class="command-usage">/mute @usuário tempo_minutos: 60 motivo: "Spam"</div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div>
+                            <h3>Pronto! 🎉</h3>
+                            <p>O bot já está no seu servidor. Teste com <code>/ajuda</code></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dica">
+                    <strong>💡 Dica rápida:</strong> Depois de adicionar, use <code>/prefixo !</code> se preferir comandos com "!" em vez de "/"
+                </div>
+            </section>
+
+            <!-- Comandos de Moderação -->
+            <section class="section" id="moderacao">
+                <div class="section-header">
+                    <h2>🛡️ Ferramentas de Moderação</h2>
+                    <p>Comandos para manter o servidor organizado</p>
+                </div>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Banir Membros</h3>
+                        <div class="command">
+                            <code>/ban @usuário motivo: "razão"</code>
+                            <p>Remove alguém do servidor permanentemente</p>
+                        </div>
+                        <p><strong>Precisa de:</strong> Banir Membros</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Limpar Chat</h3>
+                        <div class="command">
+                            <code>/limpar quantidade: 50</code>
+                            <p>Apaga várias mensagens de uma vez (até 150)</p>
+                        </div>
+                        <p><strong>Precisa de:</strong> Gerenciar Mensagens</p>
+                    </div>
+
+                    <div class="card">
+                        <h3>Silenciar</h3>
+                        <div class="command">
+                            <code>/mute @usuário tempo: 60</code>
+                            <p>Deixa alguém quieto por um tempo</p>
+                        </div>
+                        <p><strong>Precisa de:</strong> Moderar Membros</p>
                     </div>
                 </div>
             </section>
 
-            <!-- Jogos -->
-            <section class="category-section" id="jogos">
-                <div class="category-header">
-                    <h2>🎮 Sistema de Jogos</h2>
-                    <p>Jogos interativos para diversão no servidor</p>
+            <!-- Sistema de Jogos -->
+            <section class="section" id="jogos">
+                <div class="section-header">
+                    <h2>🎮 Jogos e Diversão</h2>
+                    <p>Entretenimento para o servidor todo</p>
                 </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/velha</span>
-                            <span class="command-badge server">Servidor</span>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Jogo da Velha</h3>
+                        <div class="command">
+                            <code>/velha</code>
+                            <p>Clássico 3x3 - chama os amigos!</p>
                         </div>
-                        <p class="command-description">Jogo da velha tradicional 3x3 (1 vs 1)</p>
-                        <div class="command-usage">/velha modo: "1v1"</div>
+                        <div class="command">
+                            <code>/velha4x4</code>
+                            <p>Versão 4x4 para até 4 jogadores</p>
+                        </div>
                     </div>
 
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/velha4x4</span>
-                            <span class="command-badge server">Servidor</span>
+                    <div class="card">
+                        <h3>Pedra, Papel e Tesoura</h3>
+                        <div class="command">
+                            <code>/ppt @amigo</code>
+                            <p>Desafia alguém ou joga contra mim</p>
                         </div>
-                        <p class="command-description">Jogo da velha 4x4 para 4 jogadores</p>
-                        <div class="command-usage">/velha4x4 modo: "2v2"</div>
+                        <p>Funciona em qualquer lugar, até no PV</p>
                     </div>
 
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/ppt</span>
-                            <span class="command-badge dm">DM</span>
-                            <span class="command-badge server">Servidor</span>
+                    <div class="card">
+                        <h3>Outras Diversões</h3>
+                        <div class="command">
+                            <code>/dado</code>
+                            <p>Rola um dado - perfeito para RPG</p>
                         </div>
-                        <p class="command-description">Pedra, papel e tesoura contra bot ou usuário</p>
-                        <div class="command-usage">/ppt oponente: @usuário</div>
+                        <div class="command">
+                            <code>/cara_coroa</code>
+                            <p>Cara ou coroa na hora</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Diversão -->
-            <section class="category-section" id="diversao">
-                <div class="category-header">
+            <!-- Comandos de Diversão -->
+            <section class="section" id="diversao">
+                <div class="section-header">
                     <h2>🎉 Comandos Divertidos</h2>
-                    <p>Entretenimento e interação social</p>
+                    <p>Para animar o servidor</p>
                 </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/meme</span>
-                            <span class="command-badge dm">DM</span>
-                            <span class="command-badge server">Servidor</span>
+
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Memes e Imagens</h3>
+                        <div class="command">
+                            <code>/meme</code>
+                            <p>Memes fresquinhos do Reddit</p>
                         </div>
-                        <p class="command-description">Mostra memes aleatórios do Reddit</p>
-                        <div class="command-usage">/meme</div>
+                        <div class="command">
+                            <code>/avatar @usuário</code>
+                            <p>Mostra o avatar de alguém</p>
+                        </div>
                     </div>
 
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/avatar</span>
-                            <span class="command-badge dm">DM</span>
-                            <span class="command-badge server">Servidor</span>
+                    <div class="card">
+                        <h3>Roleplay</h3>
+                        <div class="command">
+                            <code>/abraçar @amigo</code>
+                            <p>Abraça alguém com GIF fofo</p>
                         </div>
-                        <p class="command-description">Mostra o avatar de um usuário</p>
-                        <div class="command-usage">/avatar usuário: @usuário</div>
+                        <div class="command">
+                            <code>/beijar @crush</code>
+                            <p>Para os mais corajosos 😉</p>
+                        </div>
                     </div>
 
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/calc</span>
-                            <span class="command-badge dm">DM</span>
-                            <span class="command-badge server">Servidor</span>
+                    <div class="card">
+                        <h3>Utilitários</h3>
+                        <div class="command">
+                            <code>/calc 2+2</code>
+                            <p>Calculadora na hora</p>
                         </div>
-                        <p class="command-description">Calculadora científica avançada</p>
-                        <div class="command-usage">/calc expressão: "sin(45) + sqrt(16)"</div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Roleplay -->
-            <section class="category-section" id="roleplay">
-                <div class="category-header">
-                    <h2>🎭 Sistema de Roleplay</h2>
-                    <p>Interações sociais com GIFs animados</p>
-                </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/abraçar</span>
-                            <span class="command-badge dm">DM</span>
-                            <span class="command-badge server">Servidor</span>
+                        <div class="command">
+                            <code>/clima</code>
+                            <p>Seu clima emocional</p>
                         </div>
-                        <p class="command-description">Abraça alguém com GIF animado</p>
-                        <div class="command-usage">/abraçar usuário: @amigo</div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/beijar</span>
-                            <span class="command-badge dm">DM</span>
-                            <span class="command-badge server">Servidor</span>
-                        </div>
-                        <p class="command-description">Beija alguém com GIF romântico</p>
-                        <div class="command-usage">/beijar usuário: @parceiro</div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/fazer_acao_rp</span>
-                            <span class="command-badge dm">DM</span>
-                            <span class="command-badge server">Servidor</span>
-                        </div>
-                        <p class="command-description">Menu completo de ações de RP</p>
-                        <div class="command-usage">/fazer_acao_rp usuário: @alvo</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Emojis & Embeds -->
-            <section class="category-section" id="emoji">
-                <div class="category-header">
-                    <h2>🎨 Sistema de Emojis & Embeds</h2>
-                    <p>Gerenciamento avançado de emojis e criação de embeds</p>
+            <!-- Problemas Comuns -->
+            <section class="section" id="problemas">
+                <div class="section-header">
+                    <h2>❌ Problemas e Soluções</h2>
+                    <p>Se der algum pepino, olha aqui primeiro</p>
                 </div>
-                <div class="commands-grid">
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/emoji_backup</span>
-                            <span class="command-badge server">Servidor</span>
-                        </div>
-                        <p class="command-description">Faz backup completo dos emojis do servidor</p>
-                        <div class="command-usage">/emoji_backup</div>
-                    </div>
 
-                    <div class="command-card">
-                        <div class="command-header">
-                            <span class="command-name">/embed</span>
-                            <span class="command-badge server">Servidor</span>
-                        </div>
-                        <p class="command-description">Cria embeds personalizados</p>
-                        <div class="command-usage">/embed título: "Título" descrição: "Texto"</div>
-                    </div>
+                <div class="problemas">
+                    <h4>🔧 O bot não responde</h4>
+                    <ul>
+                        <li>Verifica se o bot tá online (deve aparecer na lista de membros)</li>
+                        <li>Testa com <code>/ajuda</code> - se não funcionar, as permissões podem estar erradas</li>
+                        <li>Às vezes o Discord demora um pouco - espera 2 minutinhos</li>
+                    </ul>
+                </div>
+
+                <div class="problemas">
+                    <h4>🚫 Comandos não aparecem</h4>
+                    <ul>
+                        <li>Digita <code>/</code> e espera a lista carregar</li>
+                        <li>Se não aparecer, tenta reiniciar o Discord</li>
+                        <li>No celular, às vezes precisa atualizar o app</li>
+                    </ul>
+                </div>
+
+                <div class="problemas">
+                    <h4>📱 No celular não funciona direito</h4>
+                    <ul>
+                        <li>Os botões podem demorar mais para responder</li>
+                        <li>Vira o celular de lado (modo paisagem) ajuda</li>
+                        <li>Se travar, fecha e abre o app de novo</li>
+                    </ul>
+                </div>
+
+                <div class="dica">
+                    <strong>💡 Lembrando:</strong> A maioria dos problemas se resolve reiniciando o Discord ou verificando as permissões do bot.
                 </div>
             </section>
 
-            <!-- Erros Comuns -->
-            <section class="category-section" id="erros">
-                <div class="category-header">
-                    <h2>❌ Solução de Problemas</h2>
-                    <p>Erros comuns e como resolvê-los</p>
+            <!-- Suporte -->
+            <section class="section" id="suporte">
+                <div class="section-header">
+                    <h2>💬 Precisa de Ajuda?</h2>
+                    <p>A gente resolve junto</p>
                 </div>
 
-                <div class="error-section">
-                    <h3>🔧 Problemas de Permissão</h3>
-                    <ul class="error-list">
-                        <li><strong>Erro: "Missing Permissions"</strong> - Verifique se o bot tem as permissões necessárias no servidor</li>
-                        <li><strong>Erro: "Cannot ban administrators"</strong> - Não é possível banir outros administradores</li>
-                        <li><strong>Erro: "Cannot execute command in DMs"</strong> - Alguns comandos só funcionam em servidores</li>
-                    </ul>
+                <div class="card">
+                    <h3>Servidor de Suporte</h3>
+                    <p>Se mesmo depois de ler tudo ainda tiver com problema, entra no nosso servidor:</p>
+                    <a href="https://discord.gg/hhzJz3h5M9" class="btn" target="_blank" style="margin-top: 1rem;">
+                        🆘 Entrar no Suporte
+                    </a>
+                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #b0b0b0;">
+                        Lá a gente te ajuda na hora - é só perguntar!
+                    </p>
                 </div>
 
-                <div class="error-section">
-                    <h3>🤖 Problemas do Bot</h3>
-                    <ul class="error-list">
-                        <li><strong>Bot não responde</strong> - Verifique se o bot está online e tem permissão de leitura no canal</li>
-                        <li><strong>Comandos não aparecem</strong> - Use /ajuda para recarregar a lista de comandos</li>
-                        <li><strong>Erro de rate limit</strong> - Aguarde alguns segundos antes de usar o comando novamente</li>
-                    </ul>
-                </div>
-
-                <div class="error-section">
-                    <h3>📱 Problemas em Dispositivos Móveis</h3>
-                    <ul class="error-list">
-                        <li><strong>Botões não funcionam</strong> - Atualize o app do Discord para a versão mais recente</li>
-                        <li><strong>GIFs não carregam</strong> - Verifique sua conexão com a internet</li>
-                        <li><strong>Interface cortada</strong> - Use o modo paisagem para melhor visualização</li>
-                    </ul>
+                <div class="aviso">
+                    <strong>⚠️ Importante:</strong> Não adicione o bot por links de estranhos. Sempre use o link oficial desta página.
                 </div>
             </section>
         </main>
     </div>
 
-    <footer id="suporte">
+    <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://discord.gg/hhzJz3h5M9" target="_blank">Servidor de Suporte</a>
-                <a href="#inicio">Voltar ao Topo</a>
-                <a href="#comandos">Lista de Comandos</a>
+                <a href="#inicio">Início</a>
+                <a href="#adicionar">Adicionar Bot</a>
+                <a href="#comandos">Comandos</a>
+                <a href="https://discord.gg/hhzJz3h5M9" target="_blank">Suporte</a>
             </div>
-            <p>&copy; 2024 FurryBotZ - Todos os direitos reservados</p>
+            <p style="margin-top: 1rem; color: #b0b0b0;">
+                FurryBotZ © 2024 - Feito com 🤖 para a comunidade
+            </p>
+            <p style="font-size: 0.8rem; color: #888; margin-top: 0.5rem;">
+                ID do Bot: 1414755327093768305
+            </p>
         </div>
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // Menu mobile simples
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
 
-        // Smooth scrolling
+        // Fecha o menu quando clicar em um link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+            });
+        });
+
+        // Scroll suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -738,46 +721,23 @@
             });
         });
 
-        // Active link highlighting
-        const sections = document.querySelectorAll('.category-section');
-        const navLinks = document.querySelectorAll('.sidebar-links a');
-
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Command search functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const commandCards = document.querySelectorAll('.command-card');
-            
-            // Simple search highlight (could be expanded)
-            const urlParams = new URLSearchParams(window.location.search);
-            const searchTerm = urlParams.get('search');
-            
-            if (searchTerm) {
-                commandCards.forEach(card => {
-                    const text = card.textContent.toLowerCase();
-                    if (text.includes(searchTerm.toLowerCase())) {
-                        card.style.borderColor = 'var(--secondary)';
-                        card.style.animation = 'pulse 2s infinite';
-                    }
+        // Mensagem simples ao copiar ID
+        document.addEventListener('click', function(e) {
+            if (e.target.matches('code')) {
+                navigator.clipboard.writeText(e.target.textContent).then(() => {
+                    const original = e.target.textContent;
+                    e.target.textContent = 'Copiado!';
+                    setTimeout(() => {
+                        e.target.textContent = original;
+                    }, 2000);
                 });
             }
         });
+
+        // Mostra que a página carregou
+        window.addEventListener('load', function() {
+            console.log('📖 Docs do FurryBotZ carregadas! Precisa de ajuda? É só chamar.');
+        });
     </script>
 </body>
-  </html>
+                                                                                      </html>
