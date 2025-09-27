@@ -24,7 +24,6 @@
             padding: 0 20px;
         }
 
-        /* Cabeçalho */
         header {
             background: #2a2a2a;
             padding: 1rem 0;
@@ -77,7 +76,6 @@
             cursor: pointer;
         }
 
-        /* Hero */
         .hero {
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%232a2a2a" width="1200" height="600"/><circle fill="%235865F2" opacity="0.1" cx="200" cy="150" r="100"/><circle fill="%2357F287" opacity="0.1" cx="1000" cy="400" r="150"/></svg>');
             padding: 140px 0 60px;
@@ -125,7 +123,6 @@
             background: #4ad97a;
         }
 
-        /* Conteúdo Principal */
         .main-content {
             display: grid;
             grid-template-columns: 280px 1fr;
@@ -133,7 +130,6 @@
             padding: 3rem 0;
         }
 
-        /* Sidebar */
         .sidebar {
             background: #2a2a2a;
             padding: 1.5rem;
@@ -171,7 +167,6 @@
             color: white;
         }
 
-        /* Seções */
         .section {
             margin-bottom: 3rem;
         }
@@ -192,7 +187,6 @@
             color: white;
         }
 
-        /* Cards */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -234,7 +228,6 @@
             font-family: 'Courier New', monospace;
         }
 
-        /* Passos */
         .steps {
             display: grid;
             gap: 1.5rem;
@@ -260,7 +253,6 @@
             flex-shrink: 0;
         }
 
-        /* Tabela */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -280,7 +272,6 @@
             color: white;
         }
 
-        /* Problemas */
         .problemas {
             background: #2a2a2a;
             padding: 1.5rem;
@@ -301,7 +292,6 @@
             margin-bottom: 0.5rem;
         }
 
-        /* Rodapé */
         footer {
             background: #2a2a2a;
             padding: 2rem 0;
@@ -327,7 +317,6 @@
             color: #57F287;
         }
 
-        /* Responsivo */
         @media (max-width: 768px) {
             .main-content {
                 grid-template-columns: 1fr;
@@ -366,7 +355,6 @@
             }
         }
 
-        /* Utilitários */
         .destaque {
             color: #57F287;
             font-weight: bold;
@@ -436,7 +424,6 @@
         </aside>
 
         <main>
-            <!-- Adicionar Bot -->
             <section class="section" id="adicionar">
                 <div class="section-header">
                     <h2>🚀 Adicionar o Bot ao Servidor</h2>
@@ -482,7 +469,6 @@
                     </div>
                 </div>
 
-            <!-- Comandos de Moderação -->
             <section class="section" id="moderacao">
                 <div class="section-header">
                     <h2>🛡️ Ferramentas de Moderação</h2>
@@ -519,7 +505,6 @@
                 </div>
             </section>
 
-            <!-- Sistema de Jogos -->
             <section class="section" id="jogos">
                 <div class="section-header">
                     <h2>🎮 Jogos e Diversão</h2>
@@ -562,7 +547,6 @@
                 </div>
             </section>
 
-            <!-- Comandos de Diversão -->
             <section class="section" id="diversao">
                 <div class="section-header">
                     <h2>🎉 Comandos Divertidos</h2>
@@ -608,7 +592,6 @@
                 </div>
             </section>
 
-            <!-- Problemas Comuns -->
             <section class="section" id="problemas">
                 <div class="section-header">
                     <h2>❌ Problemas e Soluções</h2>
@@ -647,7 +630,6 @@
                 </div>
             </section>
 
-            <!-- Suporte -->
             <section class="section" id="suporte">
                 <div class="section-header">
                     <h2>💬 Precisa de Ajuda?</h2>
@@ -690,19 +672,16 @@
     </footer>
 
     <script>
-        // Menu mobile simples
         document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
             document.querySelector('.nav-menu').classList.toggle('active');
         });
 
-        // Fecha o menu quando clicar em um link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 document.querySelector('.nav-menu').classList.remove('active');
             });
         });
 
-        // Scroll suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -716,7 +695,6 @@
             });
         });
 
-        // Mensagem simples ao copiar ID
         document.addEventListener('click', function(e) {
             if (e.target.matches('code')) {
                 navigator.clipboard.writeText(e.target.textContent).then(() => {
@@ -729,10 +707,9 @@
             }
         });
 
-        // Mostra que a página carregou
         window.addEventListener('load', function() {
             console.log('📖 Docs do FurryBotZ carregadas! Precisa de ajuda? É só chamar.');
         });
     </script>
 </body>
-                                                                                      </html>
+    </html>
